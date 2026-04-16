@@ -45,8 +45,7 @@ def get_messages():
     messages = [{"text": row[0], "mood": row[1]} for row in cursor.fetchall()]
     conn.close()
     return messages
-
-@app.route("/add", methods=["POST"])
+@app.post("/add")
 async def add_message(message: Message):
     user_text = message.msg
     
